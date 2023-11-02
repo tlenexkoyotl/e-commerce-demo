@@ -1,9 +1,8 @@
 CREATE TABLE addresses (
     id BIGSERIAL PRIMARY KEY,
-    user_id BIGSERIAL REFERENCES users (id) ON DELETE CASCADE NOT NULL,
     ext_number TEXT NOT NULL,
     street TEXT NOT NULL,
-    int_number TEXT NOT NULL,
+    int_number TEXT DEFAULT '' NOT NULL,
     neighborhood TEXT NOT NULL,
     zip_code TEXT NOT NULL,
     city_id BIGSERIAL REFERENCES city (id) ON DELETE CASCADE NOT NULL,
