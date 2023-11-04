@@ -1,15 +1,18 @@
 package com.decrochet.restapi;
 
+import com.decrochet.restapi.config.DatasourceConfig;
+import com.decrochet.restapi.config.FlyWayConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.context.ConfigurableApplicationContext;
 
-@EnableTransactionManagement
 @SpringBootApplication
 public class RestApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestApiApplication.class, args);
-	}
+		ConfigurableApplicationContext context = SpringApplication.run(RestApiApplication.class, args);
 
+		DatasourceConfig datasourceConfig = context.getBean(DatasourceConfig.class);
+		FlyWayConfig flyWayConfig = context.getBean(FlyWayConfig.class);
+	}
 }
