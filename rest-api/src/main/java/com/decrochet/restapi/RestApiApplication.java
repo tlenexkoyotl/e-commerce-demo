@@ -2,6 +2,7 @@ package com.decrochet.restapi;
 
 import com.decrochet.restapi.config.DatasourceConfig;
 import com.decrochet.restapi.config.FlyWayConfig;
+import com.decrochet.restapi.config.WebSecurityConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,5 +15,6 @@ public class RestApiApplication {
 
 		DatasourceConfig datasourceConfig = context.getBean(DatasourceConfig.class);
 		FlyWayConfig flyWayConfig = context.getBean(FlyWayConfig.class);
+		WebSecurityConfig webSecurityConfig = context.getBean(WebSecurityConfig.class);
 	}
 }
