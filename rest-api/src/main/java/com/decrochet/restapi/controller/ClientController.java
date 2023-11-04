@@ -21,7 +21,8 @@ public class ClientController {
         List<User> users = userService.getUsersByRole(roleId);
 
         if (users == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
 
         return new ResponseEntity<>(users, HttpStatus.OK);
