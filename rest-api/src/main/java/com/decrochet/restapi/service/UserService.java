@@ -24,11 +24,16 @@ public class UserService {
     }
 
     public List<User> getUsersByRole(Long roleId) {
-        List<User> users = userRepo.getUsersByRole(roleRepo.getReferenceById(roleId));
+        List<User> users = userRepo.getUsersByRole(roleRepo.findById(roleId).get());
+
         if (users.size() == 0) {
             return null;
         }
 
         return users;
+    }
+
+    public List<User> getAll() {
+        return userRepo.findAll();
     }
 }
