@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class RestApiApplicationTests {
 
-
     @Autowired
     protected TestRestTemplate testRestTemplate;
 
@@ -31,8 +30,7 @@ class RestApiApplicationTests {
         ResponseEntity<User> response = testRestTemplate.exchange(
                 USER_URL, HttpMethod.POST, httpEntity, User.class);
 
-//        assertEquals(response.getStatusCode(), HttpStatus.CREATED);
-        assertEquals(1, 1);
+        assertEquals(response.getStatusCode(), HttpStatus.CREATED);
     }
     @Test
     void contextLoads() {
@@ -49,9 +47,8 @@ class RestApiApplicationTests {
         ResponseEntity<User[]> response = testRestTemplate.getForEntity(
                 CLIENT_URL + "?roleId=" + 3, User[].class);
 
-        /*assertEquals(response.getStatusCode(), HttpStatus.OK);
+        assertEquals(response.getStatusCode(), HttpStatus.OK);
         assertNotNull(response.getBody());
-        assertEquals(response.getBody().length, 2);*/
-        assertEquals(1, 1);
+        assertEquals(response.getBody().length, 2);
     }
 }
